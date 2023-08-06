@@ -1,2 +1,3 @@
 {
+    "dotnet.defaultSolution": "backend/ExerciseTracker.API/ExerciseTracker.API.sln"
 }
