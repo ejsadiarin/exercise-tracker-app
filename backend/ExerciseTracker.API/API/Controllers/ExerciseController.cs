@@ -1,3 +1,4 @@
+using API.Models;
 using API.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace API.Controllers;
 [Route("[controller]")]
 public class ExerciseController : ControllerBase
 {
+    private readonly ExerciseService _exerciseService;
     public ExerciseController(ExerciseService exerciseService) 
     {
         _exerciseService = exerciseService;
@@ -19,9 +21,17 @@ public class ExerciseController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Exercise>>> GetExercise(int id)
+    public async Task<ActionResult<Exercise>> GetExercise(int id)
     {
         var result = await _exerciseService.GetSingleExercise(id);
+        
+        if (result is null)
+        {
+            return NotFound("Specified exercise doesn't exist");
+        }
+
+
+        return Ok(result);
     }
 
 }
