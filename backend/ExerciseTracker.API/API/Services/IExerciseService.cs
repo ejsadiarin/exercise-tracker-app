@@ -6,8 +6,8 @@ public interface IExerciseService
 {
     // CRUD Operations
     Task<List<Exercise>> GetAllExercises();
-    Task<Exercise>? GetSingleExercise();
-    Task<List<Exercise>?> AddExercise();
-    Task<List<Exercise>?> UpdateExercise();
-    Task<List<Exercise>?> DeleteExercise();
+    Task<Exercise>? GetSingleExercise(int id);
+    Task<List<Exercise>?> AddExercise(Exercise exercise);
+    Task<List<Exercise>?> UpdateExercise(int id, Exercise exercise);
+    Task<List<Exercise>?> DeleteExercise(int id);
 }
