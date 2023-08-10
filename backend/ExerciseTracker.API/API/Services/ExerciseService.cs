@@ -47,7 +47,7 @@ public class ExerciseService : IExerciseService
         return await _exerciseDbContext.Exercises.ToListAsync();
     }
 
-    public async Task<List<Exercise>?> UpdateExercise(int id, Exercise request);
+    public async Task<List<Exercise>?> UpdateExercise(int id, Exercise request)
     {
         // go to db and find id
         var exercise = await _exerciseDbContext.Exercises.FindAsync(id);
@@ -60,6 +60,7 @@ public class ExerciseService : IExerciseService
         await _exerciseDbContext.SaveChangesAsync();
 
         return await _exerciseDbContext.Exercises.ToListAsync();
+    }
 
     public async Task<List<Exercise>?> DeleteExercise(int id)
     {
@@ -67,7 +68,7 @@ public class ExerciseService : IExerciseService
 
         if (exercise is null) return null;
 
-        _exerciseDbContext.Exercises.Remove(id);
+        _exerciseDbContext.Exercises.Remove(exercise);
 
         // save changes to database
         await _exerciseDbContext.SaveChangesAsync();
@@ -75,5 +76,5 @@ public class ExerciseService : IExerciseService
         return await _exerciseDbContext.Exercises.ToListAsync();
 
     }
-
+    
 }
