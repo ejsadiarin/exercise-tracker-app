@@ -9,3 +9,8 @@ Homepage UI (Dashboard):
 - has exercises listed (ex. pushups, situps, squats)
 - here users can add the exercises they did for the current day
   - can add by clicking the "+" button
+
+----
+# API documentation
+
+`/api`

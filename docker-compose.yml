@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: exercisetrackerdb
+
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgressql
+  
+  api:
+    build:
+      context: ./backend/ExerciseTracker.API/API
+      dockerfile: Dockerfile
+    # ports:
+    #   - "5049:5049"
+    #   - "32083:32083"
+    #   - "44314:44314"
+    #   - "7019:7019"
+    environment:
+      ConnectionStrings__ExerciseTrackerDbConnection: "User ID=app;Password=app;Server=localhost;Port=5432;Database=exercisetrackerdb; Integrated Security=true;Pooling=true;"
+  
+  # client service here
+
+volumes:
+  db:
