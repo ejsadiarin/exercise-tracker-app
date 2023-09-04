@@ -8,8 +8,8 @@ namespace API.Controllers;
 [Route("[controller]")]
 public class ExerciseController : ControllerBase
 {
-    private readonly ExerciseService _exerciseService;
-    public ExerciseController(ExerciseService exerciseService) 
+    private readonly IExerciseService _exerciseService;
+    public ExerciseController(IExerciseService exerciseService) 
     {
         _exerciseService = exerciseService;
     }
@@ -67,5 +67,13 @@ public class ExerciseController : ControllerBase
 
         return Ok(result);
     }
+
+    // [HttpGet()]
+    // public async Task<ActionResult<List<Exercise>>> Delete(int id, Exercise req)
+    // {
+    //     await _exerciseService.AddExercise();
+
+    //     return Ok("hehe");
+    // }
 
 }

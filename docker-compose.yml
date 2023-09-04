@@ -15,7 +15,7 @@ services:
   
   api:
     build:
-      context: ./backend/ExerciseTracker.API/API
+      context: ./backend/ExerciseTracker.API/API/
       dockerfile: Dockerfile
     # ports:
     #   - "5049:5049"
